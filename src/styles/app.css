@@ -1,0 +1,300 @@
+/* ----- Base / Theme Variables ----- */
+:root {
+  /* ----- Base / Theme ----- */
+  --panel: #151a23;
+  --border: #2a2f3a;
+  --text: #e7e7e7;
+  --muted: #b7bcc7;
+
+  --link: #d7deff;
+  --linkHover: #ffffff;
+
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  /* ----- Layout ----- */
+  --page-max: 1200px;
+  --page-gutter: 94vw;
+  --content-width: min(var(--page-max), var(--page-gutter));
+
+  /* ----- Background Gradient ----- */
+  --bg1: #0b2a4a;
+  --bg2: #0f3c68;
+  --bg3: #155a9c;
+  --bg4: #1e7ec8;
+
+  /* ----- Glass Header ----- */
+  --glass: rgba(10, 20, 40, 0.45);
+  --blur: 10px;
+
+  /* ----- Pill/Button Primitives ----- */
+  --pill-radius: 14px;
+  --pill-pad-y: 8px;
+  --pill-pad-x: 14px;
+  --pill-font: 14px;
+  --pill-weight: 500;
+
+  /* ----- Common Alphas ----- */
+  --w06: rgba(255, 255, 255, 0.06);
+  --w10: rgba(255, 255, 255, 0.10);
+  --w16: rgba(255, 255, 255, 0.16);
+
+  /* ----- Main Nav Active (Mint) ----- */
+  --nav-active-bg: rgba(94, 234, 212, 0.32);
+  --nav-active-border: rgba(94, 234, 212, 0.45);
+  --nav-active-inset: rgba(94, 234, 212, 0.10);
+
+  /* ----- Breadcrumbs ----- */
+  --crumb-sep: rgba(147, 197, 253, 0.95);
+
+  /* ----- Subnav (Blue) ----- */
+  --subnav-bg: rgba(96, 165, 250, 0.10);
+  --subnav-active-bg: rgba(96, 165, 250, 0.30);
+  --subnav-active-border: rgba(96, 165, 250, 0.55);
+  --subnav-active-inset: rgba(96, 165, 250, 0.10);
+  --subnav-text: rgba(255, 255, 255, 0.82);
+}
+
+/* ----- Global Reset-ish ----- */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+          linear-gradient(
+            180deg,
+            var(--bg1) 0%,
+            var(--bg2) 35%,
+            var(--bg3) 70%,
+            var(--bg4) 100%
+          );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.45;
+}
+
+/* ----- Links ----- */
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--linkHover);
+  text-decoration: underline;
+}
+
+/* ----- Text Utilities ----- */
+.muted {
+  color: var(--muted);
+}
+
+/* ----- App Shell ----- */
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----- Header / Navigation ----- */
+.header {
+  padding: 24px 0 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--glass);
+  backdrop-filter: blur(var(--blur));
+}
+
+.header-inner {
+  width: var(--content-width);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand {
+  font-size: clamp(40px, 5vw, 60px);
+
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  line-height: 1.02;
+
+  text-align: center;
+
+  color: #eaf2ff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--pill-pad-y) var(--pill-pad-x);
+  border-radius: var(--pill-radius);
+
+  font-size: var(--pill-font);
+  font-weight: var(--pill-weight);
+
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.85);
+  background: var(--w06);
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  border-color: var(--border);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  background: var(--nav-active-bg);
+  border-color: var(--nav-active-border);
+  color: #ffffff;
+  box-shadow: 0 0 0 3px var(--nav-active-inset) inset;
+}
+
+/* ----- Main Content ----- */
+.content {
+  width: var(--content-width);
+  margin: 18px auto;
+  flex: 1;
+}
+
+/* ----- Footer ----- */
+.footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  opacity: 0.95;
+  padding: 14px 0;
+}
+
+.footer-inner {
+  width: var(--content-width);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.footer-link {
+  white-space: nowrap;
+}
+
+/* ----- Breadcrumbs ----- */
+.breadcrumbs {
+  margin: 10px 0 18px;
+  color: var(--muted);
+}
+
+.crumb-sep {
+  display: inline-block;
+  margin: 0 10px;
+  opacity: 0.85;
+  color: var(--crumb-sep);
+  transform: translateY(-1px);
+}
+
+.crumb-link {
+  color: var(--muted);
+  border-bottom: 1px dotted #6b7280;
+}
+
+.crumb-link:hover {
+  color: var(--text);
+  border-bottom-style: solid;
+  text-decoration: none;
+}
+
+.crumb-current {
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* ----- Small lyout helpers (reused across pages) ----- */
+.stack { display: grid; gap: 12px; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+
+/* ----- Cards / Panels ----- */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-top: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* ----- Sub-navigation (About / Projects) ----- */
+.subnav {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0 6px;
+  flex-wrap: wrap;
+}
+
+.sub-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+
+  padding: var(--pill-pad-y) var(--pill-pad-x);
+  border-radius: var(--pill-radius);
+
+  font-size: var(--pill-font);
+  font-weight: var(--pill-weight);
+
+  color: var(--subnav-text);
+  background: var(--subnav-bg);
+  border: 1px solid var(--w10);
+  text-decoration: none;
+}
+
+.sub-link:hover {
+  background: var(--subnav-active-bg);
+  border-color: var(--w16);
+  text-decoration: none;
+}
+
+.sub-link.active {
+  background: var(--subnav-active-bg);
+  border-color: var(--subnav-active-border);
+  color: #ffffff;
+  box-shadow: 0 0 0 3px var(--subnav-active-inset) inset;
+}
+
+/* ---- Future background image slot ----- */
+/*
+body {
+  background:
+    linear-gradient(rgba(15, 17, 21, 0.75), rgba(15, 17, 21, 0.75)),
+    url("/bg-window.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+*/

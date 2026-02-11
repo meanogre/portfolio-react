@@ -1,16 +1,55 @@
-# React + Vite
+# Wayne Lassen – Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Live Site](https://img.shields.io/badge/Live-Site-blue)](https://waynelassen.netlify.app)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/meanogre/portfolio-react)
 
-Currently, two official plugins are available:
+A small React site built to demonstrate structure, clarity, and maintainability.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project intentionally avoids unnecessary complexity. It focuses on:
 
-## React Compiler
+- Clean routing with nested layouts
+- Reusable navigation components
+- A minimal CSS design system
+- Clear content hierarchy
+- Expandability without structural drift
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The goal is not visual spectacle. The goal is disciplined implementation.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React
+- React Router
+- Vite
+- Plain CSS
+- GitHub (version control)
+- Netlify (continuous deployment)
+
+---
+
+## Deployment Workflow
+
+1. Develop locally.
+2. Commit and push to GitHub.
+3. Netlify automatically builds and deploys the latest commit.
+
+Production builds are generated via Vite during Netlify’s build process.
+
+---
+
+## Project Structure
+
+- `Layout` provides the application shell.
+- Top-level navigation controls primary sections.
+- Nested routes support structured sub-sections.
+- Project metadata is separated from rendering logic where appropriate.
+
+---
+
+## Local Development
+
+Install dependencies:
+
+```bash
+npm install

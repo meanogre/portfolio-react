@@ -1,7 +1,7 @@
 export const AXIOMS = [
     {
         title: "Programs are never complete, they escape.",
-        tagline: "A released program will grow legs you never gave it.",
+        tagline: "At some point, you must let them go.",
     },
     {
         title: "As soon as you hear yourself say, “All the user has to do is…”, you’ve made more work for them.",

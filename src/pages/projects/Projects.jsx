@@ -10,6 +10,7 @@ const Projects = () => {
                 links={[
                     { to: "/projects", label: "Overview", end: true },
                     { to: "/projects/portfolio", label: "Portfolio" },
+                    { to: "/projects/api", label: "API" },
                 ]}
             />
 

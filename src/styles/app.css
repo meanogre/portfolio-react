@@ -287,6 +287,40 @@ a:hover {
   box-shadow: 0 0 0 3px var(--subnav-active-inset) inset;
 }
 
+/* ----- API Dashboard Cards ----- */
+.apiCardHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.apiCardTitle {
+  margin: 0;
+}
+
+.apiCardMeta {
+  white-space: nowrap;
+}
+
+.apiCardBody {
+  margin-top: 12px;
+}
+
+.apiQuote {
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.apiQuoteAuthor {
+  margin: 0;
+}
+
+.apiCardActions {
+  margin-top: 20px;
+}
+
+
 /* ---- Future background image slot ----- */
 /*
 body {

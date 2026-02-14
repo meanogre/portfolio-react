@@ -1,30 +1,26 @@
 import {useFetchJson} from "../../hooks/useFetchJson.js";
 import StatusBlock from "./StatusBlock.jsx";
+import ApiCardHeader from "./ApiCardHeader.jsx";
+
 
 const QUOTE_URL = "https://dummyjson.com/quotes/random";
 const QUOTE_SOURCE = "DummyJSON";
-/*
-Expected response (subset):
-{
-  quote: string,
-  author: string
-}
-*/
+const QUOTE_MAP = {
+    quote: "quote",
+    author: "author",
+};
 
 const QuoteCard = () => {
     const { status, data, error , refetch} = useFetchJson(QUOTE_URL, {
         transform: (q) => ({
-            quote: q?.quote ?? "",
-            author: q?.author ?? "Unknown",
+            quote: q?.[QUOTE_MAP.quote] ?? "",
+            author: q?.[QUOTE_MAP.author] ?? "Unknown",
         }),
     });
 
     return (
       <article className="card apiCard">
-          <header className="apiCardHeader">
-              <h3 className="apiCardTitle">Random Quote</h3>
-              <span className="muted apiCardMeta">{QUOTE_SOURCE}</span>
-          </header>
+          <ApiCardHeader title="Random Quote" source={QUOTE_SOURCE} />
 
           <div className="apiCardBody">
               <StatusBlock status={status} error={error} loadingText="Fetching a quote..." />
@@ -33,19 +29,19 @@ const QuoteCard = () => {
                   <>
                       <p className="apiQuote">“{data.quote}”</p>
                       <p className="muted apiQuoteAuthor">— {data.author}</p>
-
-                      <div className="apiCardActions">
-                          <button
-                              type="button"
-                              className="nav-link"
-                              onClick={refetch}
-                              disabled={status === "loading"}
-                          >
-                              New Quote
-                          </button>
-                      </div>
                   </>
               )}
+          </div>
+
+          <div className="apiCardActions">
+              <button
+                  type="button"
+                  className="nav-link"
+                  onClick={refetch}
+                  disabled={status === "loading"}
+              >
+                  New Quote
+              </button>
           </div>
       </article>
     );

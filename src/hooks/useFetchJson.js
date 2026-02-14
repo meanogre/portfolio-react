@@ -17,10 +17,16 @@ export const useFetchJson = (url, options = {}) => {
         headers = {},
         enabled = true,
         transform = (x) => x,
-        deps = [],
+        onSuccess = () => {},
+        onError = () => {},
+        deps = null,
+        // deps = [],
     } = options;
 
     const abortRef = useRef(null);
+
+    const onSuccessRef = useRef(onSuccess);
+    const onErrorRef = useRef(onError);
 
     const [status, setStatus] = useState(enabled ? "loading" : "idle");
     const [data, setData] = useState(null);
@@ -28,13 +34,24 @@ export const useFetchJson = (url, options = {}) => {
     const [nonce, setNonce] = useState(0);
 
     useEffect(() => {
+        onSuccessRef.current = onSuccess;
+    }, [onSuccess]);
+
+    useEffect(() => {
+        onErrorRef.current = onError;
+    }, [onError]);
+
+
+    useEffect(() => {
         if (!enabled) {
             setStatus("idle");
             return;
         }
         if (!url) {
-            setStatus("error");
-            setError("Missing URL");
+            setStatus("idle");
+            setError("");
+            // setStatus("error");
+            // setError("Missing URL");
             return;
         }
 
@@ -42,6 +59,8 @@ export const useFetchJson = (url, options = {}) => {
         abortRef.current?.abort();
         const ac = new AbortController();
         abortRef.current = ac;
+
+
 
         let alive = true;
 
@@ -56,11 +75,13 @@ export const useFetchJson = (url, options = {}) => {
                 if (!alive) return;
                 setData(shaped);
                 setStatus("success");
+                onSuccessRef.current(shaped);
             } catch (e) {
                 if (e?.name === "AbortError") return;
                 if (!alive) return;
                 setStatus("error");
                 setError(e?.message || "Request failed");
+                onErrorRef.current(e);
             }
         })();
 
@@ -68,8 +89,8 @@ export const useFetchJson = (url, options = {}) => {
             alive = false;
             ac.abort();
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [url, enabled, nonce, ...deps]);
+    }, [url, enabled, nonce, ...(Array.isArray(deps) ? deps : [])]);
+    // }, [url, enabled, nonce, ...deps]);
 
     return {
         status,

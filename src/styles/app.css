@@ -237,6 +237,7 @@ a:hover {
 .stack { display: grid; gap: 12px; }
 .mt-0 { margin-top: 0; }
 .mb-0 { margin-bottom: 0; }
+.mt-10 { margin-top: 10px; }
 
 /* ----- Cards / Panels ----- */
 .card {
@@ -304,21 +305,126 @@ a:hover {
 
 .apiCardBody {
   margin-top: 12px;
-}
-
-.apiQuote {
-  margin: 0 0 10px 0;
-  font-size: 1.05rem;
-  line-height: 1.5;
-}
-
-.apiQuoteAuthor {
-  margin: 0;
+  display: grid;
+  gap: 12px;
 }
 
 .apiCardActions {
   margin-top: 20px;
 }
+
+.apiCard {
+  display: grid;
+  gap: 12px;
+}
+
+/* ----- Quote Card ----- */
+.quoteText {
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.quoteAuthor {
+  margin: 0;
+}
+
+/* ----- Weather Location Control ----- */
+.weatherControls {
+  display: grid;
+  gap: 12px;
+}
+
+.weatherControlsRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.weatherResolved {
+  display: grid;
+  gap: 2px;
+  margin-top: 2px;
+  font-size: 0.95rem;
+}
+
+.weatherDetails {
+  display: grid;
+  gap: 6px;
+}
+
+.weatherDetails p {
+  margin: 0;
+}
+
+/* ----- shared form styles ----- */
+/* textInput */
+.textInput,
+.selectInput {
+  background: var(--w06);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--pill-radius);
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+}
+
+.textInput {
+  flex: 1;
+  min-width: 240px;
+}
+
+.textInput::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.selectInput {
+  width: 100%;
+  height: 40px;
+}
+
+.selectInput option {
+  color: #000;
+  background: #fff;
+}
+
+/* button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--pill-pad-y) var(--pill-pad-x);
+  border-radius: var(--pill-radius);
+
+  font-size: var(--pill-font);
+  font-weight: var(--pill-weight);
+  line-height: 1;
+
+  color: rgba(255, 255, 255, 0.9);
+  background: var(--w10);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: var(--border);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btnGhost {
+  background: transparent;
+  border-color: var(--border);
+}
+
+
+
 
 
 /* ---- Future background image slot ----- */

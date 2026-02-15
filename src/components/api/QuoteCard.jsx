@@ -27,8 +27,8 @@ const QuoteCard = () => {
 
               {status === "success" && data?.quote && (
                   <>
-                      <p className="apiQuote">“{data.quote}”</p>
-                      <p className="muted apiQuoteAuthor">— {data.author}</p>
+                      <p className="quoteText">“{data.quote}”</p>
+                      <p className="muted quoteAuthor">— {data.author}</p>
                   </>
               )}
           </div>

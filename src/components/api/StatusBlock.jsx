@@ -8,9 +8,11 @@ const StatusBlock = ({ status, error, loadingText="Loading..."}) => {
     }
 
     if (status === "error") {
+        if (!error) return null;
+
         return (
             <p className="muted" style={{ margin: 0 }}>
-                <span style={{ fontWeight: 700 }}>Error:</span> {error || "Unknown error"}
+                <span style={{ fontWeight: 700 }}>Error:</span> {error}
             </p>
         );
     }

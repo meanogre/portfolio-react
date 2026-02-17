@@ -1,6 +1,8 @@
 import {useFetchJson} from "../../hooks/useFetchJson.js";
 import StatusBlock from "./StatusBlock.jsx";
 import ApiCardHeader from "./ApiCardHeader.jsx";
+import ApiActionButton from "./ApiActionButton.jsx";
+import ApiCardActions from "./ApiCardActions.jsx";
 
 
 const JOKE_URL = "https://icanhazdadjoke.com/";
@@ -31,16 +33,11 @@ const DadJokeCard = () => {
                 )}
             </div>
 
-            <div className="apiCardActions">
-                <button
-                    type="button"
-                    className="nav-link"
-                    onClick={refetch}
-                    disabled={status === "loading"}
-                >
+            <ApiCardActions>
+                <ApiActionButton onClick={refetch} disabled={status === "loading"}>
                     New Joke
-                </button>
-            </div>
+                </ApiActionButton>
+            </ApiCardActions>
         </article>
     );
 };

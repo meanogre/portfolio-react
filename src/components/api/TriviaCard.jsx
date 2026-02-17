@@ -4,6 +4,8 @@ import ApiCardHeader from "./ApiCardHeader.jsx";
 import Cooldown from "./Cooldown.jsx";
 import { useMemo } from "react";
 import TriviaChoices from "./TriviaChoices.jsx";
+import ApiCardActions from "./ApiCardActions.jsx";
+import ApiActionButton from "./ApiActionButton.jsx";
 
 
 const TRIVIA_URL = "https://opentdb.com/api.php?amount=1&type=multiple";
@@ -105,7 +107,7 @@ const TriviaCard = () => {
                 )}
             </div>
 
-            <div className="apiCardActions">
+            <ApiCardActions>
                 <Cooldown
                     ms={COOLDOWN}
                     label="New Question"
@@ -113,16 +115,11 @@ const TriviaCard = () => {
                     backoffOn="HTTP 429"
                     backoffMs={ERROR_429_BACKOFF}
                 >
-                    <button
-                        type="button"
-                        className="nav-link"
-                        onClick={refetch}
-                        disabled={status === "loading"}
-                    >
+                    <ApiActionButton onClick={refetch} disabled={status === "loading"}>
                         New Question
-                    </button>
+                    </ApiActionButton>
                 </Cooldown>
-            </div>
+            </ApiCardActions>
         </article>
     );
 };

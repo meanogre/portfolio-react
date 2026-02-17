@@ -4,6 +4,8 @@ import ApiCardHeader from "./ApiCardHeader.jsx";
 import WeatherLocationControl from "./WeatherLocationControl.jsx";
 import StatusBlock from "./StatusBlock.jsx";
 import { weatherCodeText } from "../../data/weatherCodeData.js";
+import ApiCardActions from "./ApiCardActions.jsx";
+import ApiActionButton from "./ApiActionButton.jsx";
 
 const FORECAST_BASE_URL = "https://api.open-meteo.com/v1/forecast";
 const FORECAST_SOURCE = "Open-Meteo";
@@ -169,16 +171,14 @@ const WeatherCard = () => {
                 )}
             </div>
 
-            <div className="apiCardActions">
-                <button
-                    type="button"
-                    className="nav-link"
+            <ApiCardActions>
+                <ApiActionButton
                     onClick={refetch}
                     disabled={!forecastUrl || status === "loading"}
                     title={!forecastUrl ? "Pick a location first" : "Refresh weather"}
                 >
                     Refresh Weather
-                </button>
+                </ApiActionButton>
 
                 {noaaUrl ? (
                     <a
@@ -187,12 +187,12 @@ const WeatherCard = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Open NOAA forecast for this location"
-                        style={{ marginLeft: 12}}
+                        style={{ marginLeft: 12 }}
                     >
                         View full forecast (NOAA)
                     </a>
                 ) : null}
-            </div>
+            </ApiCardActions>
         </article>
     );
 };

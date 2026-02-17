@@ -476,7 +476,27 @@ a:hover {
   box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.18);
 }
 
+/* ----- PictureCard ----- */
+.podImageLink {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+}
 
+.podImage {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  border-radius: 12px;
+  border: 1px solid var(--border);
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.podImageLink:hover .podImage {
+  filter: brightness(1.06);
+}
 
 /* ---- Future background image slot ----- */
 /*

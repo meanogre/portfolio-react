@@ -1,6 +1,8 @@
 import {useFetchJson} from "../../hooks/useFetchJson.js";
 import StatusBlock from "./StatusBlock.jsx";
 import ApiCardHeader from "./ApiCardHeader.jsx";
+import ApiCardActions from "./ApiCardActions.jsx";
+import ApiActionButton from "./ApiActionButton.jsx";
 
 
 const QUOTE_URL = "https://dummyjson.com/quotes/random";
@@ -33,16 +35,11 @@ const QuoteCard = () => {
               )}
           </div>
 
-          <div className="apiCardActions">
-              <button
-                  type="button"
-                  className="nav-link"
-                  onClick={refetch}
-                  disabled={status === "loading"}
-              >
+          <ApiCardActions>
+              <ApiActionButton onClick={refetch} disabled={status === "loading"}>
                   New Quote
-              </button>
-          </div>
+              </ApiActionButton>
+          </ApiCardActions>
       </article>
     );
 };

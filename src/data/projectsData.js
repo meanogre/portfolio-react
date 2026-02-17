@@ -7,6 +7,8 @@ export const PROJECTS = [
     {
         slug: "api",
         title: "API Dashboard",
-        blurb: "A growing set of API widgets (quote, weather, wiki, etc.) built as independent cards. Demonstrates fetch + async UI states, a shared hook, and a registry-driven layout.",
+        blurb: `An API dashboard composed of reusable, independent card components
+        (Quote, Dad Joke, Trivia, Weather, Picture of the Day). Demonstrates async data fetching, shared hooks,
+        transform mapping, cooldown/backoff handling, and standardized action components.`,
     },
 ];

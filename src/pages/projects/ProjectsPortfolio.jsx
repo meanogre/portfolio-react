@@ -1,13 +1,14 @@
+import ProjectPage from "../../components/projects/ProjectPage.jsx";
+
 const ProjectsPortfolio = () => {
     return (
-        <section className="card">
-            <h2>This Portfolio Site</h2>
-
-            <p className="muted">
-                A small React site that stays intentionally simple: clean navigation,
-                clear content hierarchy, and room to grow without accumulating mess.
-            </p>
-
+        <ProjectPage
+            title="This Portfolio Site"
+            description={`
+             A small React site that stays intentionally simple: clean navigation,
+             clear content hierarchy, and room to grow without accumulating mess.
+             `.trim()}
+        >
             <h3 className="mt-0">Why it exists</h3>
             <ul>
                 <li>Give employers a quick way to scan what I can do.</li>
@@ -36,9 +37,8 @@ const ProjectsPortfolio = () => {
                 <li>React Router</li>
                 <li>Plain CSS</li>
             </ul>
-
-        </section>
-    )
+        </ProjectPage>
+    );
 };
 
 export default ProjectsPortfolio;

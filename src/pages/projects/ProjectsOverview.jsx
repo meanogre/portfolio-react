@@ -1,11 +1,14 @@
 import {PROJECTS} from "../../data/projectsData.js";
 import {Link} from "react-router-dom";
+import ProjectPage from "../../components/projects/ProjectPage";
 
 const ProjectsOverview = () => {
     return (
-        <section className="card">
-            <h2>Overview</h2>
-
+        <ProjectPage
+            title="Overview"
+            description={null}
+            className=""
+        >
             <p>
                 This is a small collection of write-ups. Each one is a short "case study":
                 what the thing is, why it exists, and the specific skills it exercises.
@@ -26,8 +29,7 @@ const ProjectsOverview = () => {
                     </div>
                 ))}
             </div>
-
-        </section>
+        </ProjectPage>
     )
 };
 

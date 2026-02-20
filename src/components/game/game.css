@@ -1,0 +1,110 @@
+.gameStage {
+    --kidSize: 108px;
+    --umbrellaSize: 126px;
+    --swath: var(--umbrellaSize);
+
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    user-select: none;
+    touch-action: none;
+}
+
+.kid {
+    z-index: 3;
+    position: absolute;
+    bottom: 10px;
+    transform: translateX(-50%);
+
+    width: var(--kidSize);
+    height: var(--kidSize);
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.umbrella {
+    z-index: 4;
+    position: absolute;
+
+    width: var(--umbrellaSize);
+    height: var(--umbrellaSize);
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    cursor: grab;
+}
+
+.umbrella--dragging {
+    cursor: grabbing;
+}
+
+.kid img,
+.umbrella img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.gameStage--sunny {
+    background: linear-gradient(
+            to bottom,
+            rgba(140, 215, 255, 0.95) 0%,
+            rgba(175, 235, 255, 0.92) 45%,
+            rgba(255, 252, 235, 0.88) 100%
+    );
+}
+
+.gameStage--rainy {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rainLayer {
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background-image: repeating-linear-gradient(
+            115deg,
+            rgba(255, 255, 255, 0.0) 0px,
+            rgba(255, 255, 255, 0.0) 10px,
+            rgba(255, 255, 255, 0.22) 11px,
+            rgba(255, 255, 255, 0.0) 13px
+    );
+
+    background-size: 22px 22px;
+    animation: rainMove 0.35s linear infinite;
+}
+
+.rainCutout {
+    z-index: 2;
+    position: absolute;
+    pointer-events: none;
+
+    /*--swath: 126px;*/
+
+    left: calc(var(--umb-x) - (var(--swath) / 2));
+    top: calc(var(--umb-y) - 10px);
+    right: auto;
+    bottom: 0;
+    width: var(--swath);
+
+    background: rgba(0, 0, 0, 0.75);
+}
+
+@keyframes rainMove {
+    from { background-position: 0 0; }
+    to { background-position: 0 22px; }
+}

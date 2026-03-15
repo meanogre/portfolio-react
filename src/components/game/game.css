@@ -3,6 +3,10 @@
     --umbrellaSize: 126px;
     --swath: var(--umbrellaSize);
 
+    /* dummy values to make lint happy */
+    --umb-x: 50%;
+    --umb-y: 50%;
+
     position: relative;
     width: 100%;
     max-width: 900px;

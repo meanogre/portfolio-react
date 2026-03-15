@@ -12,6 +12,7 @@ const Projects = () => {
                     { to: "/projects/portfolio", label: "Portfolio" },
                     { to: "/projects/api", label: "API" },
                     { to: "/projects/game", label: "Game"},
+                    { to: "/projects/recipes", label: "Recipes" },
                 ]}
             />
 

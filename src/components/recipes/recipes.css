@@ -1,0 +1,272 @@
+.recipePlanner {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+    align-items: start;
+    margin-top: 18px;
+}
+
+.recipeSidebar,
+.recipeMain {
+    display: grid;
+    gap: 18px;
+}
+
+.recipePanel {
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow);
+}
+
+.recipeField {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.recipeField:first-child {
+    margin-top: 0;
+}
+
+.recipeField label {
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 500;
+}
+
+.recipeInput {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.09);
+    color: #f3f4f6;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.recipeInput:focus {
+    outline: none;
+    border-color: rgba(96, 165, 250, 0.55);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.10);
+}
+
+.recipeInput,
+.recipeInput option,
+.recipeInput optgroup {
+    background: #1f2937;
+    color: #f9fafb;
+}
+
+.recipePlannerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.recipeFavoriteItem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+
+.recipeFavoriteLink {
+    flex: 1;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.recipeFavoriteLink:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.recipeFavoriteButton {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.recipeFavoriteButton:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.recipeFavoriteRemove {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    color: #f50505;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+.recipeFavoriteRemove:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #e10d0d;
+}
+
+.recipeListCard {
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 14px;
+    /*min-height: 140px;*/
+}
+
+.recipeListCard--make {
+    border-color: rgba(96, 165, 250, 0.35);
+}
+
+.recipeListCard--gather {
+    border-color: rgba(74, 222, 128, 0.35);
+}
+
+.recipeListCard--buy {
+    border-color: rgba(250, 204, 21, 0.35);
+}
+
+.recipeListCard--other {
+    border-color: rgba(244, 144, 182, 0.35);
+}
+
+.recipeListHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.recipeListTitle {
+    margin: 0;
+}
+
+.recipeListCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    padding: 0 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.recipeList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.recipeListItem {
+    padding: 4px 0;
+}
+
+.recipeListItem + .recipeListItem {
+    margin-top: 4px;
+}
+
+.recipeListText {
+    line-height: 1.2;
+}
+
+.recipeStepsCard {
+    margin-top: 18px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.recipeStepsTree,
+.recipeStepChildren {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.recipeStepLine {
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(96, 165, 250, 0.28);
+}
+
+.recipeStepNode,
+.recipeStepLeaf {
+    margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+    .recipePlanner {
+        grid-template-columns: 1fr;
+    }
+}
+
+.recipeOwnedLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.recipeOwnedInput {
+    width: 72px;
+    padding: 4px 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.09);
+    color: #f3f4f6;
+    font-size: 14px;
+    text-align: center;
+}
+
+.recipeStillNeed {
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.recipeListEmpty {
+    color: rgba(255, 255, 255, 0.70);
+    margin: 0;
+}
+
+.recipeMakeRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*justify-content: center;*/
+    gap: 16px;
+}
+
+.recipeMakeRow .recipeListText {
+    flex: 1;
+    min-width: 0;
+}
+
+.recipeOwnedRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}

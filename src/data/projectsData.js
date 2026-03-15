@@ -21,4 +21,14 @@ export const PROJECTS = [
          Demonstrates pointer events, collision checks, and CSS layering/masking.
          `.trim(),
     },
+    {
+        slug: "recipes",
+        title: "LOTRO Recipe Planner",
+        blurb: `
+         Crafting planner for Lord of the Rings Online recipes. Calculates recursive
+         crafting dependencies and generates make/gather/buy lists based on selected
+         quantities and on-hand inventory. Demonstrates recursive data processing,
+         dynamic UI updates, and localStorage persistence.
+         `.trim(),
+    },
 ];

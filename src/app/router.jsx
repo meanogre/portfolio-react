@@ -17,6 +17,7 @@ import ProjectsOverview from "../pages/projects/ProjectsOverview.jsx";
 import Axioms from "../pages/Axioms.jsx";
 import ProjectsApi from "../pages/projects/ProjectsApi.jsx";
 import ProjectsGame from "../pages/projects/ProjectsGame.jsx";
+import ProjectsRecipes from "../pages/projects/ProjectsRecipes.jsx";
 
 
 export const router = createBrowserRouter([
@@ -50,8 +51,7 @@ export const router = createBrowserRouter([
                     { path: "portfolio", element: <ProjectsPortfolio />, handle: {crumb: () => "Portfolio" } },
                     { path: "api", element: <ProjectsApi />, handle: {crumb: () => "API" } },
                     { path: "game", element: <ProjectsGame />, handle: {crumb: () => "Game" } },
-            //         { path: "recipes", element: <Recipes />, handle: {crumb: () => "Recipes" } },
-            //         { path: "click-game", element: <ClickGame />, handle: {crumb: () => "Click Game" } },
+                    { path: "recipes", element: <ProjectsRecipes />, handle: {crumb: () => "Recipes" } },
                 ],
             },
             {
